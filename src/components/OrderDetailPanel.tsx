@@ -7,11 +7,11 @@ interface OrderDetailPanelProps {
 
 export default function OrderDetailPanel({ order }: OrderDetailPanelProps) {
   return (
-    <div className="bg-blue-50 border-t border-blue-100 px-4 py-4">
+    <div className="bg-white border-t border-blue-100 px-4 py-4">
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="font-semibold text-sm text-gray-800">{order.customerName}</span>
-          <span className="text-blue-700 text-xs">
+          <span className="font-semibold text-sm text-blue-500">{order.customerName}</span>
+          <span className="text-blue-500 text-xs font-semibold">
             ( {order.customerId} )
           </span>
           <button className="inline-flex items-center gap-1 text-xs text-blue-600 border border-blue-300 rounded-full px-2 py-1 hover:bg-blue-100 transition-colors">
@@ -74,7 +74,7 @@ export default function OrderDetailPanel({ order }: OrderDetailPanelProps) {
       </div>
 
       {order.warnings.length > 0 && (
-        <div className="bg-white border border-gray-200 rounded p-3">
+        <div className="bg-gray-50 rounded p-3">
           <p className="text-xs font-semibold text-gray-700 mb-1">Warning(s)</p>
           <ul className="list-disc list-inside space-y-0.5">
             {order.warnings.map((warning, idx) => (

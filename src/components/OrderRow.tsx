@@ -29,7 +29,7 @@ export default function OrderRow({ order, isExpanded, onToggle }: OrderRowProps)
 
         {/* Account */}
         <td className="px-2 py-2 text-xs">
-          <span className="text-blue-600 font-medium hover:underline cursor-pointer">
+          <span className="text-blue-500 font-medium hover:underline cursor-pointer">
             {order.account}
           </span>
         </td>
@@ -78,7 +78,7 @@ export default function OrderRow({ order, isExpanded, onToggle }: OrderRowProps)
         {/* More options - hidden on mobile */}
         <td className="px-2 py-2 hidden md:table-cell">
           <button
-            className="text-gray-400 hover:text-gray-600 p-1 rounded-full bg-gray-100"
+            className="text-cyan-600 hover:text-gray-600 p-1 rounded-full bg-gray-100"
             onClick={(e) => { e.stopPropagation(); }}
           >
             <MoreHorizontal className="w-4 h-4" />
