@@ -17,45 +17,45 @@ export default function OrderTable({ orders }: OrderTableProps) {
     <div className="overflow-x-auto">
       <table className="w-full border-collapse text-sm">
         <thead>
-          <tr className="border-b border-gray-300 bg-white">
+          <tr className="border-b-2 border-cyan-600 border-opacity-20 bg-white">
             {/* Spacer for chevron */}
             <th className="w-6" />
 
-            <th className="px-2 py-2 text-left text-xs font-semibold text-gray-600 whitespace-nowrap">
-              Account
+            <th className="px-2 py-2 text-left text-xs font-semibold text-cyan-700 whitespace-nowrap">
+              Account <span className="text-gray-300 font-light ml-1">|</span>
             </th>
-            <th className="px-2 py-2 text-left text-xs font-semibold text-gray-600 whitespace-nowrap">
-              Operation
+            <th className="px-2 py-2 text-left text-xs font-semibold text-cyan-700 whitespace-nowrap">
+              Operation <span className="text-gray-300 font-light ml-1">|</span>
             </th>
-            <th className="px-2 py-2 text-left text-xs font-semibold text-gray-600 whitespace-nowrap">
-              Symbol
+            <th className="px-2 py-2 text-left text-xs font-semibold text-cyan-700 whitespace-nowrap">
+              Symbol <span className="text-gray-300 font-light ml-1">|</span>
             </th>
-            <th className="px-2 py-2 text-left text-xs font-semibold text-gray-600 whitespace-nowrap hidden md:table-cell">
-              Description
+            <th className="px-2 py-2 text-left text-xs font-semibold text-cyan-700 whitespace-nowrap hidden md:table-cell">
+              Description <span className="text-gray-300 font-light ml-1">|</span>
             </th>
-            <th className="px-2 py-2 text-right text-xs font-semibold text-gray-600 whitespace-nowrap hidden md:table-cell">
-              Qty.
+            <th className="px-2 py-2 text-right text-xs font-semibold text-cyan-700 whitespace-nowrap hidden md:table-cell">
+              Qty. <span className="text-gray-300 font-light ml-1">|</span>
             </th>
-            <th className="px-2 py-2 text-right text-xs font-semibold text-gray-600 whitespace-nowrap hidden md:table-cell">
-              Filled Qty
+            <th className="px-2 py-2 text-right text-xs font-semibold text-cyan-700 whitespace-nowrap hidden md:table-cell">
+              Filled Qty <span className="text-gray-300 font-light ml-1">|</span>
             </th>
-            <th className="px-2 py-2 text-right text-xs font-semibold text-gray-600 whitespace-nowrap hidden md:table-cell">
-              Price
+            <th className="px-2 py-2 text-right text-xs font-semibold text-cyan-700 whitespace-nowrap hidden md:table-cell">
+              Price <span className="text-gray-300 font-light ml-1">|</span>
             </th>
-            <th className="px-2 py-2 text-left text-xs font-semibold text-gray-600 whitespace-nowrap">
-              Status
+            <th className="px-2 py-2 text-left text-xs font-semibold text-cyan-700 whitespace-nowrap">
+              Status <span className="text-gray-300 font-light ml-1">|</span>
             </th>
-            <th className="px-2 py-2 text-left text-xs font-semibold text-gray-600 whitespace-nowrap hidden md:table-cell">
-              Date ↑
+            <th className="px-2 py-2 text-left text-xs font-semibold text-cyan-700 whitespace-nowrap hidden md:table-cell">
+              Date ↑ <span className="text-gray-300 font-light ml-1">|</span>
             </th>
-            <th className="px-2 py-2 text-left text-xs font-semibold text-gray-600 whitespace-nowrap hidden md:table-cell">
-              Expiration
+            <th className="px-2 py-2 text-left text-xs font-semibold text-cyan-700 whitespace-nowrap hidden md:table-cell">
+              Expiration <span className="text-gray-300 font-light ml-1">|</span>
             </th>
-            <th className="px-2 py-2 text-left text-xs font-semibold text-gray-600 whitespace-nowrap hidden md:table-cell">
-              No. Ref.
+            <th className="px-2 py-2 text-left text-xs font-semibold text-cyan-700 whitespace-nowrap hidden md:table-cell">
+              No. Ref. <span className="text-gray-300 font-light ml-1">|</span>
             </th>
-            <th className="px-2 py-2 text-left text-xs font-semibold text-gray-600 whitespace-nowrap hidden md:table-cell">
-              Ext. Ref.
+            <th className="px-2 py-2 text-left text-xs font-semibold text-cyan-700 whitespace-nowrap hidden md:table-cell">
+              Ext. Ref. <span className="text-gray-300 font-light ml-1">|</span>
             </th>
             <th className="px-2 py-2 hidden md:table-cell" />
           </tr>
