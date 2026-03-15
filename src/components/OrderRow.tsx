@@ -70,7 +70,7 @@ export default function OrderRow({ order, isExpanded, onToggle }: OrderRowProps)
         </td>
 
         {/* No. Ref - hidden on mobile */}
-        <td className="px-2 py-2 text-xs text-gray-700 hidden md:table-cell">{order.noRef}</td>
+        <td className="px-2 py-2 text-xs font-semibold text-gray-700 hidden md:table-cell">{order.noRef}</td>
 
         {/* Ext. Ref - hidden on mobile */}
         <td className="px-2 py-2 text-xs text-gray-700 hidden md:table-cell">{order.extRef}</td>
@@ -78,7 +78,7 @@ export default function OrderRow({ order, isExpanded, onToggle }: OrderRowProps)
         {/* More options - hidden on mobile */}
         <td className="px-2 py-2 hidden md:table-cell">
           <button
-            className="text-gray-400 hover:text-gray-600 p-1 rounded"
+            className="text-gray-400 hover:text-gray-600 p-1 rounded-full bg-gray-100"
             onClick={(e) => { e.stopPropagation(); }}
           >
             <MoreHorizontal className="w-4 h-4" />
