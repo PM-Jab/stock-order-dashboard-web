@@ -21,15 +21,14 @@ export default function SearchBar({
 
   return (
     <div className="bg-white border-b border-gray-200 px-4 py-3">
-      <div className="flex items-center justify-between gap-2">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-          <div className="flex flex-col items-start gap-2">
-            <h1 className="text-sm font-bold text-gray-800">Search</h1>
-            <span className="text-xs text-gray-500">
-              Search results :{" "}
-              <span className="font-semibold text-gray-700">{resultCount}</span>
-            </span>
-          </div>
+      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+
+        <div className="flex items-center gap-3">
+          <h1 className="text-sm font-bold text-gray-800">Search</h1>
+          <span className="text-xs text-gray-500">
+            Search results :{" "}
+            <span className="font-semibold text-gray-700">{resultCount}</span>
+          </span>
         </div>
 
         <div
@@ -62,33 +61,33 @@ export default function SearchBar({
             </select>
           </div>
 
-          <div className="flex items-center gap-1">
-            <label className="text-xs text-gray-600 font-medium whitespace-nowrap">
+          <div className="flex items-center gap-1 w-full sm:w-auto">
+            <label className="text-xs text-gray-600 font-medium whitespace-nowrap w-10 md:w-full">
               From
             </label>
             <input
               type="date"
               value={fromDate}
               onChange={(e) => onFromDateChange(e.target.value)}
-              className="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+              className="flex-1 sm:flex-none border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
 
-          <div className="flex items-center gap-1">
-            <label className="text-xs text-gray-600 font-medium whitespace-nowrap">
+          <div className="flex items-center gap-1 w-full sm:w-auto">
+            <label className="text-xs text-gray-600 font-medium whitespace-nowrap w-10 md:w-full">
               To
             </label>
             <input
               type="date"
               value={toDate}
               onChange={(e) => onToDateChange(e.target.value)}
-              className="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+              className="flex-1 sm:flex-none border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
 
           <button
             onClick={onSearch}
-            className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-xs px-6 py-2 rounded-full items-center"
+            className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-xs font-semibold px-6 py-2 rounded-full transition-colors"
           >
             Search
           </button>
