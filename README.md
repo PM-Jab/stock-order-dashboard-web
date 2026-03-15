@@ -1,73 +1,100 @@
-# React + TypeScript + Vite
+# Stock Order Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive stock order search and management dashboard built with **React**, **TypeScript**, and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Order search** — filter orders by date range (From / To)
+- **Fixed filters** — Period is locked to `Transmission`, Status to `Waiting` (MVP)
+- **Expandable rows** — click any row to reveal order detail: customer info, net amount, exchange rate, warnings, and Accept / Reject actions
+- **Responsive layout** — desktop shows all columns; mobile shows only Account, Operation, Symbol, and Status
+- **Mock API** — `fetchOrders()` simulates a backend call with a short delay; swap in a real endpoint when ready
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Layer | Library |
+|-------|---------|
+| Framework | React 19 + TypeScript |
+| Build tool | Vite 8 |
+| Styling | Tailwind CSS 3 |
+| Icons | lucide-react |
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── api/
+│   └── ordersApi.ts        # Mock API (replace with real fetch)
+├── components/
+│   ├── SearchBar.tsx        # Date range inputs + Search button
+│   ├── OrderTable.tsx       # Responsive table with sortable headers
+│   ├── OrderRow.tsx         # Expandable row with chevron toggle
+│   ├── OrderDetailPanel.tsx # Expanded detail: amounts, warnings, actions
+│   └── StatusBadge.tsx      # Amber "Waiting" badge
+├── data/
+│   └── mockOrders.ts        # 16 sample orders (Dec 2022 – Jan 2023)
+├── types/
+│   └── order.ts             # Order & SearchParams TypeScript interfaces
+└── App.tsx                  # Root component — state, filtering, layout
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm install
+npm run dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Available Scripts
+
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start the dev server with HMR |
+| `npm run build` | Type-check and build for production |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
+
+## Data Model
+
+```ts
+interface Order {
+  id: string;
+  account: string;
+  operation: 'Buy' | 'Sell';
+  symbol: string;
+  description: string;
+  qty: number;
+  filledQty: number;
+  price: number;
+  status: 'Waiting';
+  date: string;        // ISO datetime string
+  expiration: string;
+  noRef: string;
+  extRef: string;
+  // Detail panel fields
+  customerName: string;
+  customerId: string;
+  netAmount: number;
+  currency: string;
+  exchangeRate: number;
+  qsLimit: number;
+  referenceNumber: string;
+  telephone: string;
+  userId: string;
+  warnings: string[];
+}
+```
+
+## Connecting a Real Backend
+
+Replace the mock in `src/api/ordersApi.ts` with a real HTTP call:
+
+```ts
+export async function fetchOrders(): Promise<Order[]> {
+  const res = await fetch('/api/orders');
+  if (!res.ok) throw new Error('Failed to fetch orders');
+  return res.json();
+}
 ```
